@@ -1,10 +1,10 @@
 # 🌱 학교 식물 탐사대 — 연수용 시작 버전
 
 사진으로 식물을 알아보고, 국립수목원 공식 정보·교과서와 잇는 웹앱의 **연수용 시작 버전**이에요.
-앱은 거의 다 돌아가요. 화면에 🚧 표시가 있는 곳을 연수에서 **클로드 웹(무료)** 과 함께 채워요.
+앱은 다 돌아가요. 연수에서는 **클로드 웹(무료)** 에게 프롬프트를 보내 이 앱을 우리 학교·우리 반에 맞게 바꿔요.
 내 컴퓨터에 설치할 것은 없어요.
 
-- 진행표·미션 프롬프트(노션): https://app.notion.com/p/40ddc287784c80b7bfb1cfbed4cf9c17
+- 연수 진행표·프롬프트(노션): https://app.notion.com/p/40ddc287784c80b7bfb1cfbed4cf9c17
 - 완성본 앱 둘러보기: https://plant-explorer-delta.vercel.app
 
 ## 1. 내 앱 만들기 — 버튼 한 번
@@ -18,28 +18,30 @@
 이제 **내 GitHub 저장소**에서 파일을 고쳐 저장(Commit)하면 1~2분 뒤 내 앱이 자동으로 바뀌어요.
 서버 지역(서울)과 Node 버전은 `vercel.json`·`package.json` 에 들어 있어서 따로 바꿀 것이 없어요.
 
-## 2. 미션
+## 2. 우리 학교에 맞게 바꾸는 자리
 
-프롬프트는 노션 진행표에 있어요. 막히면 **정답** 파일 내용을 그대로 붙여 넣어도 돼요.
+클로드 웹 채팅에서 **+ → Add from GitHub** 로 아래 파일만 골라 첨부한 뒤 프롬프트를 보내요.
 
-| 미션 | 고칠 파일 | 클로드 | 정답 |
-| --- | --- | --- | --- |
-| 1. 앱 이름에 우리 학교 넣기 | `lib/site.ts` | 쓰지 않아요 | [보기](https://github.com/7guwol7-max/plant-explorer/blob/claude/affectionate-johnson-msxhyk/lib/site.ts) |
-| 2. 그림 도움말 설명 쓰기 | `lib/termText.ts` | 1번 | [보기](https://github.com/7guwol7-max/plant-explorer/blob/claude/affectionate-johnson-msxhyk/lib/termText.ts) |
-| 3. 단계 막대 만들기 | `app/components/Steps.tsx` | 1번 | [보기](https://github.com/7guwol7-max/plant-explorer/blob/claude/affectionate-johnson-msxhyk/app/components/Steps.tsx) |
-| 4. (선택) 활동 진행 막대 만들기 | `app/components/MissionProgress.tsx` | 1번 | [보기](https://github.com/7guwol7-max/plant-explorer/blob/claude/affectionate-johnson-msxhyk/app/components/MissionProgress.tsx) |
+| 바꾸고 싶은 것 | 첨부할 파일 |
+| --- | --- |
+| 앱 이름, 맨 아래 메뉴(이름·순서·추가), '어디에서 찾았나요?' 장소 | `lib/site.ts` |
+| 새 메뉴 화면 | `lib/site.ts` (새 화면 파일은 클로드가 만들어 줘요: `app/주소/page.tsx`) |
+| 교과서 연결에 성취기준 더하기, 우리 반 활동으로 바꾸기 | `data/curriculum-extra.json` (+ 클로드에 '성취기준' 커넥터) |
+| 잎 모양·잎맥·줄기 그림 도움말 설명 | `lib/termText.ts` 🚧 지금 비어 있어요 |
 
-## 3. 파일 고치는 방법 (모든 미션 똑같이)
+- `data/curriculum-extra.json` 은 지금 `[]`(빈 목록)이에요. 여기에 넣은 성취기준은 기본 자료와 합쳐지고, 같은 코드를 넣으면 적은 칸(활동·학생 문장·연결 조건)만 바뀌어요.
+- 예시·정답: [lib/termText.ts](https://github.com/7guwol7-max/plant-explorer/blob/claude/affectionate-johnson-msxhyk/lib/termText.ts) · [data/curriculum-extra.json](https://github.com/7guwol7-max/plant-explorer/blob/claude/affectionate-johnson-msxhyk/data/curriculum-extra.json)
 
-1. 내 저장소(주소에 **내 아이디**가 있는지 확인)에서 키보드 `t` → 파일 이름 입력 → 파일 열기
-2. 오른쪽 위 **연필(Edit this file)** → 편집 칸 클릭 → `Ctrl+A` → 클로드가 준 코드 `Ctrl+V`
-3. **Commit changes…** → **Commit changes**
-4. 1~2분 뒤 내 앱 새로고침. Vercel → Deployments 맨 위가 **Ready**(초록)면 반영된 거예요
-   - 빨간 **Error** 면: 그 배포 → Build Logs 의 빨간 줄을 복사해 클로드에게 '이 오류가 났어. 고친 파일 전체를 다시 줘' (그동안 앱은 직전 버전으로 계속 열려요)
+## 3. 받은 코드 붙여 넣기
+
+- 있는 파일 고치기: 내 저장소에서 키보드 `t` → 파일 이름 → 파일 열기 → 오른쪽 위 **연필** → `Ctrl+A` → `Ctrl+V` → **Commit changes**
+- 새 파일 만들기: 저장소 첫 화면 **Add file → Create new file** → 이름 칸에 경로 그대로(예: `app/school/page.tsx`) → 붙여 넣기 → **Commit changes**
+- 1~2분 뒤 내 앱 새로고침. Vercel → Deployments 맨 위가 **Ready**(초록)면 반영된 거예요
+  - 빨간 **Error** 면: 그 배포 → Build Logs 의 빨간 줄을 복사해 클로드에게 '이 오류가 났어. 고친 파일 전체를 다시 줘' (그동안 앱은 직전 버전으로 계속 열려요)
 
 ## 4. 키
 
-키는 코드에 적지 않아요. 내 앱 → ⚙️ 설정 화면에 넣으면 그 기기 브라우저에만 저장돼요.
+키는 코드에도, 클로드 채팅에도 붙여 넣지 않아요. 내 앱 → ⚙️ 설정 화면에 넣으면 그 기기 브라우저에만 저장돼요.
 
 - 공공데이터포털 '산림청 국립수목원_식물자원 조회 서비스' 일반 인증키 — https://www.data.go.kr
 - 제미나이 API 키(무료로 시작 가능) — https://aistudio.google.com/apikey

@@ -1,12 +1,17 @@
 /**
- * 🚧 연수 미션 4 (선택): 교과서 연결 카드 위 '🎯 해 볼 활동 3개 · ✅ 1개 적었어요' 진행 막대를 만들어요.
- * 지금은 자리만 표시해요. 이 파일 전체를 클로드가 만들어 준 코드로 바꿔 넣으면 돼요.
- * (이 함수 이름 MissionProgress 와 받는 값 total·done 은 그대로 두어야 해요)
+ * 🎯 해 볼 활동 진행 막대 — '해 볼 활동 3개 [■■□] ✅ 1개 적었어요'
+ * total: 해 볼 활동 수, done: 답을 적은 활동 수 (연수 미션 4)
  */
 export default function MissionProgress({ total, done }: { total: number; done: number }) {
+  const all = total > 0 && done >= total;
+  const percent = total > 0 ? Math.min(100, (done / total) * 100) : 0;
   return (
-    <div className="todo-box">
-      🚧 미션 4: 여기에 활동 진행 막대가 들어가요 (활동 {total}개 중 {done}개 적음)
+    <div className={`mission-progress ${all ? "all" : ""}`} aria-live="polite">
+      <span>🎯 해 볼 활동 <strong>{total}</strong>개</span>
+      <span className="mission-meter" aria-hidden>
+        <span style={{ width: `${percent}%` }} />
+      </span>
+      <span>{all ? "🎉 모두 적었어요" : `✅ ${done}개 적었어요`}</span>
     </div>
   );
 }
