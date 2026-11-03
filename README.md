@@ -11,9 +11,9 @@
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2F7guwol7-max%2Fplant-explorer-starter&project-name=my-plant-explorer&repository-name=my-plant-explorer)
 
-1. 위 **Deploy** 버튼 → GitHub 계정으로 계속하기
+1. 위 **Deploy** 버튼 → 'Git Providers' 에 GitHub·GitLab·Bitbucket 버튼이 보이고 **Create 가 회색**이면 **GitHub** 를 눌러 로그인 → Vercel 권한 허용(Authorize) → (나오면) Install → 이 화면으로 돌아오기
 2. 저장소 이름(`my-plant-explorer`)은 그대로 두고 **Create** → **Deploy**
-   - **Create 가 안 보이거나 눌리지 않으면**: 이름 칸 아래에 '이미 있다(already exists)'는 빨간 글씨가 있는지 보고 이름을 바꿔요(예: `my-plant-explorer-2`). Git 계정 칸이 비어 있으면 GitHub 를 연결(Install)해요
+   - **Create 가 안 보이거나 눌리지 않으면**: 이름 칸 아래에 '이미 있다(already exists)'는 빨간 글씨가 있는지 보고 이름을 바꿔요(예: `my-plant-explorer-2`). 'Git Providers' 버튼만 보이면 **GitHub** 를 눌러 연결해요(GitHub 창이 안 뜨면 팝업 차단 풀기)
 3. 1~2분 뒤 축하 화면이 나오면 **Continue to Dashboard** → **Domains** 의 주소(`https://my-plant-explorer-○○○.vercel.app` 처럼)가 **내 앱**이에요
 
 이제 **내 GitHub 저장소**에서 파일을 고쳐 저장(Commit)하면 1~2분 뒤 내 앱이 자동으로 바뀌어요.
