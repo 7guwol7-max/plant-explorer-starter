@@ -1,8 +1,7 @@
 /**
  * 산림청 국립수목원_식물자원 조회 서비스 (공공데이터포털)
  * 어느 주소를 어떤 요청 변수로 부를지는 app-settings.json 의 dataApi 에 적는다 (연수: 프롬프트로 연결하기)
- *   목록 검색: https://apis.data.go.kr/1400119/PlantResource/plantPilbkSearch  (serviceKey, pageNo, numOfRows, reqSearchWrd)
- *   상세 정보: https://apis.data.go.kr/1400119/PlantResource/plantPilbkInfo    (serviceKey, reqPlantPilbkNo)
+ *   요청 주소·요청 변수·응답 항목은 공공데이터포털 '활용가이드'에서 찾아 넣는다
  * dataApi 가 비어 있으면 NOT_CONNECTED 오류로 '아직 연결 안 됨'을 알린다. 연습 모드(MOCK=1)는 samples/ 를 쓴다.
  * 응답은 XML 전용 → 여기서 JSON으로 변환한다.
  * 응답 구조: response > header(resultCode, resultMsg) > body > items > item[]  (상세는 body > item)
